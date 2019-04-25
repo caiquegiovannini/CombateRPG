@@ -17,27 +17,31 @@ public class CombateRPG {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int confirma = 0;
-        Lutador l1 = new Lutador();        
+      int confirma = 0;
+        Lutador lut = new Lutador();
+        Adversarios adv = new Adversarios();        
         Scanner leitor = new Scanner(System.in);
         
         while (confirma != 1) {
-            l1.criarLutador();
+            lut.criarLutador();
             System.out.println("");
-            System.out.println("==== " + l1.getNome() + " ====");
-            l1.atributos();
+            System.out.println("==== " + lut.getNome() + " ====");
+            lut.atributos();
             System.out.println("");
             System.out.print("Confirmar? [1]-Sim / [2]-Não: ");
             confirma = leitor.nextInt();
+            System.out.println("");
             if (confirma > 2 || confirma < 1) {
                 System.out.println("Opção inválida");
             }else if (confirma == 2) {
                 continue;
             }
-            System.out.println(l1.getNome() + "Está pronto para lutar!");
+            System.out.println(lut.getNome() + " está pronto para lutar!");
         }
-        
-        
+       
+        System.out.println("================================");
+        System.out.println("Um novo adversário aparece para lutar!");
+        adv.gerarAdversario();
     }
     
 }

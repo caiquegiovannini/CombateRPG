@@ -16,16 +16,19 @@ public class Lutador {
     private int escolha = 0, pontos = 15, hp = 20, forca = 5, agilidade = 5, resistencia = 5;
     
     public void criarLutador() {
+        this.setPontos(15);
+        this.setHp(20);
+        this.setForca(5);
+        this.setAgilidade(5);
+        this.setResistencia(5);
         Scanner leitor = new Scanner(System.in);
-        
+        //Nome
         System.out.print("Qual o nome do lutador? ");
         this.nome = leitor.next();
-        System.out.println("");
-        
+        //Atributos
         System.out.println("Você tem 15 pontos para distribuir:");
         while (this.pontos > 0 && this.pontos <=15) {            
             //Força
-            System.out.println("");
             System.out.println("Quantos pontos vai adicionar em Força?");
             System.out.print("5 + ");
             this.escolha = leitor.nextInt();
@@ -84,6 +87,7 @@ public class Lutador {
                 System.out.println("Restam " + this.getPontos() + " pontos");
             }
         }
+            this.hp += (this.forca + this.resistencia) / 2;
     }
     
     public void atributos() {
@@ -94,7 +98,6 @@ public class Lutador {
     }
     
     public Lutador() {
-        
     }
 
     public String getNome() {
