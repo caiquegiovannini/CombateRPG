@@ -10,49 +10,74 @@ package combaterpg;
  * @author caiqu
  */
 public class Adversarios extends Lutador {
-    private String primeiroNome[] = {"O Grande ","O Incrível ","O Especialista ","O Imperdoável ","O Ninja ","O Poderoso ","O Incontrolável "};  //[7]
-    private String segundoNome[] = {"Esmagador-de-Crânios","Destruidor-de-Famílias","Quebra-Ossos","Aleijador","Chutador-de-Bundas","Finalizador"};  //[6]
-    
-    public void gerarAdversario() { 
-        //Nome
-        int nRandom = (int) (0 + Math.random() * (7 - 0));
-        int sRandom = (int) (0 + Math.random() * (6 - 0));        
-        //Atributos
-        while (this.pontos > 0 && this.pontos <= 15) {
-            //Força
-            int forRandom = (int) (0 + Math.random() * (this.pontos - 0));
-            this.forca += forRandom;
-            this.pontos -= forRandom;
-            if (this.pontos <= 0) break;
-            //Agilidade
-            int agiRandom = (int) (0 + Math.random() * (this.pontos - 0));
-            this.agilidade += agiRandom;
-            this.pontos -= agiRandom;
-            if (this.pontos <= 0) break;
-            //Resistencia
-            int resRandom = (int) (1 + Math.random() * (this.pontos - 1));
-            this.resistencia += resRandom;
-            this.pontos -= resRandom;
-            if (this.pontos <= 0) break;            
+
+    private String primeiroNome[] = {"O Grande ", "O Incrível ", "O Especialista ", "O Imperdoável ", "O Ninja ", "O Poderoso ", "O Incontrolável "};  //[7]
+    private String segundoNome[] = {"Esmagador-de-Crânios", "Destruidor-de-Famílias", "Quebra-Ossos", "Aleijador", "Chutador-de-Bundas", "Finalizador"};  //[6]
+
+    public void gerarAdversario() {
+        while (this.confirma != 1) {
+            //Nome
+            int nRandom = (int) (0 + Math.random() * (7 - 0));
+            int sRandom = (int) (0 + Math.random() * (6 - 0));
+            this.nome = this.primeiroNome[nRandom] + this.segundoNome[sRandom];
+            //Atributos
+            this.setPontos(15);
+            this.setHp(80);
+            this.setForca(5);
+            this.setAgilidade(5);
+            this.setResistencia(5);
+            while (this.pontos > 0 && this.pontos <= 15) {
+                //Força
+                int forRandom = (int) (0 + Math.random() * (this.pontos - 0));
+                this.forca += forRandom;
+                this.pontos -= forRandom;
+                if (this.pontos <= 0) {
+                    break;
+                }
+                //Agilidade
+                int agiRandom = (int) (0 + Math.random() * (this.pontos - 0));
+                this.agilidade += agiRandom;
+                this.pontos -= agiRandom;
+                if (this.pontos <= 0) {
+                    break;
+                }
+                //Resistencia
+                int resRandom = (int) (1 + Math.random() * (this.pontos - 1));
+                this.resistencia += resRandom;
+                this.pontos -= resRandom;
+                if (this.pontos <= 0) {
+                    break;
+                }
+            }
+            this.hp += (this.forca + this.resistencia) / 2;
+
+            
+            System.out.println("Um novo adversário aparece!");
+            this.atributos();
+            
+            System.out.print("Confirmar? [1]-Sim / [2]-Não: ");
+            this.confirma = leitor.nextInt();
+            System.out.println("");
+            if (this.confirma > 2 || this.confirma < 1) {
+                System.out.println("Opção inválida");
+            }else if (this.confirma == 2) {
+                continue;
+            }
+            System.out.println("");
+                System.out.println("Prepare-se para lutar!");
+                System.out.println("");
         }
-        this.hp += (this.forca + this.resistencia) / 2;
-        
-        System.out.println(this.primeiroNome[nRandom] + this.segundoNome[sRandom]);
-        System.out.println("HP: " + this.getHp());
-        System.out.println("Força: " + this.getForca());
-        System.out.println("Agilidade: " + this.getAgilidade());
-        System.out.println("Resistencia: " + this.getResistencia());        
     }
-    
+
     public Adversarios() {
         
     }
-    
+
     public String[] getPrimeiroNome() {
         return primeiroNome;
     }
-    
-    public void setNome(String[] n) {
+
+    public void setPrimeiroNome(String[] n) {
         this.primeiroNome = n;
     }
 
@@ -63,7 +88,17 @@ public class Adversarios extends Lutador {
     public void setSegundoNome(String[] sn) {
         this.segundoNome = sn;
     }
-    
+
+    @Override
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public void setNome(String n) {
+        this.nome = n;
+    }
+
     @Override
     public int getHp() {
         return hp;

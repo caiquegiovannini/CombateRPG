@@ -5,23 +5,24 @@
  */
 package combaterpg;
 
-import java.util.Scanner;
 
 /**
  *
  * @author caiqu
  */
 public class Jogador extends Lutador {
-    private String nome;
-    private int confirma = 0,escolha = 0;
-    Scanner leitor = new Scanner(System.in);
+    //private String nome;
+    private int escolha = 0;
+    
+    public Jogador () {
+        
+    }
     
     public void criarPersonagem() {
         while (this.confirma != 1) {
-            atribuirPontos();
+            this.atribuirPontos();
             System.out.println("");
-            System.out.println("==== " + this.getNome() + " ====");
-            atributos();
+            this.atributos();
             System.out.println("");
             System.out.print("Confirmar? [1]-Sim / [2]-Não: ");
             this.confirma = leitor.nextInt();
@@ -37,7 +38,7 @@ public class Jogador extends Lutador {
     
     public void atribuirPontos() {
         this.setPontos(15);
-        this.setHp(20);
+        this.setHp(80);
         this.setForca(5);
         this.setAgilidade(5);
         this.setResistencia(5);
@@ -109,17 +110,13 @@ public class Jogador extends Lutador {
             this.hp += (this.forca + this.resistencia) / 2;
     }
     
-    public void atributos() {
-        System.out.println("HP: " + this.getHp());
-        System.out.println("Força: " + this.getForca());
-        System.out.println("Agilidade: " + this.getAgilidade());
-        System.out.println("Resistencia: " + this.getResistencia());
-    }
-    
+   
+    @Override
     public String getNome() {
         return nome;
     }
 
+    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -171,5 +168,6 @@ public class Jogador extends Lutador {
     public void setResistencia(int resistencia) {
         this.resistencia = resistencia;
     }
+    
     
 }

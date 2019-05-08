@@ -5,17 +5,33 @@
  */
 package combaterpg;
 
+import java.util.Scanner;
+
 /**
  *
  * @author caiqu
  */
 public abstract class Lutador {
-    protected int pontos = 15, hp = 20, forca = 5, agilidade = 5, resistencia = 5;
-    
-    public Lutador() {
-        
-    }
+    protected String nome;
+    protected int confirma = 0, pontos = 15, hp = 80, forca = 5, agilidade = 5, resistencia = 5;    
+    Scanner leitor = new Scanner(System.in);
 
+    
+    public void atributos() {
+        System.out.println("\n==== " + this.getNome() + " ====");
+        System.out.println("HP: " + this.getHp()); 
+        System.out.println("Força: " + this.getForca()); 
+        System.out.println("Agilidade: " + this.getAgilidade());
+        System.out.println("Resistencia: " + this.getResistencia());
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+    
+    public void setNome(String n) {
+        this.nome = n;
+    }
     
     public int getPontos() {
         return pontos;

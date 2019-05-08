@@ -5,7 +5,6 @@
  */
 package combaterpg;
 
-import java.util.Scanner;
 
 /**
  *
@@ -16,14 +15,19 @@ public class CombateRPG {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
         Jogador player1 = new Jogador();
         Adversarios adversario = new Adversarios();
         
         player1.criarPersonagem();
+        System.out.println("");
         System.out.println("================================");
-        System.out.println("Um novo adversário aparece!");
+        System.out.println("");
         adversario.gerarAdversario();
+     
+        Combate combate = new Combate(player1, adversario);
+        combate.iniciarCombate(player1, adversario);
         
     }
     
