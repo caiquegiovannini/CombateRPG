@@ -1,7 +1,20 @@
 <html><h2>## CombateRPG ##</h2>
+  
+  <h2>Executando o jogo</h2>
+  -Baixe o arquivo executÃ¡vel CombateRPG.jar;<br>
+  - Para executar o jogo, abra o prompt de comando no diretÃ³rio onde o
+  arquivo CombateRPG.jar estÃ¡ localizado e execute a seguinte linha
+  de comando:
+
+    java -jar CombateRPG.jar
+
+
+  - Bom jogo! :)
+
+  
   <h3>Sistema simples de combate por turnos:</h3>
   
-  -Após criar um personagem lutador,um adversário aleatório será gerado e o jogador poderá iniciar a luta.<br>
-  -A luta ocorrerá por turnos onde o jogador poderá escolher se irá atacar (podendo ser soco ou chute) ou defender (um soco ou um chute).<br>
-  -Caso um lutador obtenha sucesso em uma defesa, o jogador adversário não poderá atacar na próxima rodada, podendo apenas defender.<br>
+  -Apï¿½s criar um personagem lutador,um adversï¿½rio aleatï¿½rio serï¿½ gerado e o jogador poderï¿½ iniciar a luta.<br>
+  -A luta ocorrerï¿½ por turnos onde o jogador poderï¿½ escolher se irï¿½ atacar (podendo ser soco ou chute) ou defender (um soco ou um chute).<br>
+  -Caso um lutador obtenha sucesso em uma defesa, o jogador adversï¿½rio nï¿½o poderï¿½ atacar na prï¿½xima rodada, podendo apenas defender.<br>
   -Vence aquele que conseguir zerar os pontos de vida (hp) de seu oponente.<br></html>
